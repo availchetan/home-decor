@@ -1,35 +1,21 @@
 // @ts-nocheck
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   output: 'export',
   distDir: 'out',
+  basePath: isProd ? '/nextjs-shadcn' : '', // Required for GitHub Pages
+  assetPrefix: isProd ? '/nextjs-shadcn/' : '', // Ensures assets load correctly
   images: {
     unoptimized: true,
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.ctfassets.net',
-      },
-      {
-        protocol: 'https',
-        hostname: 'static.vecteezy.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'm.media-amazon.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'imagedelivery.net',
-      },
-      {
-        protocol: 'https',
-        hostname: 'www.jaipurcraftonline.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'www.craftpassion.com',
-      },
+      { protocol: 'https', hostname: 'images.ctfassets.net' },
+      { protocol: 'https', hostname: 'static.vecteezy.com' },
+      { protocol: 'https', hostname: 'm.media-amazon.com' },
+      { protocol: 'https', hostname: 'imagedelivery.net' },
+      { protocol: 'https', hostname: 'www.jaipurcraftonline.com' },
+      { protocol: 'https', hostname: 'www.craftpassion.com' }
     ],
   },
 };
