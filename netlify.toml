@@ -1,0 +1,19 @@
+[images]
+  remote_images = [
+    "https://images.ctfassets.net/v3n26e09qg2r/*",
+    "https://static.vecteezy.com/system/resources/previews/*",
+    "https://m.media-amazon.com/images/*",
+    "https://imagedelivery.net/*",
+    "https://www.jaipurcraftonline.com/cdn/shop/*",
+    "https://www.craftpassion.com/wp-content/uploads/*"
+  ]
+
+[build]
+  command = "bun run build"
+  publish = ".next"
+
+[build.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
