@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Adjust if your default branch is different
+      - main  # Change to your default branch if different
 
 permissions:
   contents: read
@@ -26,13 +26,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Wait after npm install
+        run: sleep 60  
+
       - name: Build Next.js app
         run: npm run build
 
-      - name: Upload artifact
+      - name: Upload artifact  
         uses: actions/upload-pages-artifact@v2
         with:
-          path: out  # Make sure Next.js outputs to this folder
+          path: out  
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
