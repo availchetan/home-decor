@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Adjust if your default branch is different
+      - main  # Ensure this is your correct default branch
 
 permissions:
   contents: read
@@ -29,16 +29,10 @@ jobs:
       - name: Build Next.js app
         run: npm run build
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: nextjs-out
-          path: out  # Ensure "out" is the correct build folder
-
-      - name: Upload GitHub Pages artifact
+      - name: Upload GitHub Pages artifact (Direct Upload)
         uses: actions/upload-pages-artifact@v1
         with:
-          path: out  # Again, ensure this is correct
+          path: out  # Make sure this is the correct output folder
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
