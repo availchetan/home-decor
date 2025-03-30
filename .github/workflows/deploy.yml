@@ -26,13 +26,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Wait after npm install
-        run: sleep 60 
-
       - name: Build Next.js app
         run: npm run build
 
-      - name: Upload GitHub Pages artifact
+      - name: Upload GitHub Pages artifact  # ✅ Corrected action
         uses: actions/upload-pages-artifact@v1
         with:
           path: out  # Make sure "out" is the correct folder
